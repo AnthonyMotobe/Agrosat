@@ -5,15 +5,6 @@ import { ForecastBundle } from './weatherService';
 const clamp = (v: number, min: number, max: number) => Math.max(min, Math.min(max, v));
 const avg = (arr: number[]) => (arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : 0);
 
-/**
- * Calcula um índice de saúde da lavoura (proxy de NDVI) a partir de dados REAIS:
- *  - umidade do solo (0-1cm)
- *  - balanço hídrico recente (precipitação − evapotranspiração)
- *  - estresse térmico (calor extremo / risco de geada)
- *
- * Não é um NDVI medido por satélite multiespectral (isso exige imagens Sentinel/Landsat),
- * mas um indicador agroclimático explicável e baseado em dados observados.
- */
 export function computeCropHealth(bundle: ForecastBundle): CropHealth {
   const { current, daily, todayIndex } = bundle;
 
@@ -25,7 +16,7 @@ export function computeCropHealth(bundle: ForecastBundle): CropHealth {
   const hasEt0 = window.some((d) => d.et0 != null);
   const et0Total = hasEt0
     ? window.reduce((s, d) => s + (d.et0 ?? 0), 0)
-    : days * 3.5; // demanda hídrica nominal quando a API não retorna ET0
+    : days * 3.5;
   const waterBalance = precipTotal - et0Total;
 
   const sm = current.soilMoisture;

@@ -1,11 +1,5 @@
 import { TextStyle, ViewStyle } from 'react-native';
 
-/**
- * Design System do AgroSat.
- * - `colors` muda conforme o tema (light/dark).
- * - `spacing`, `radius`, `fontSize`, `fontWeight` são tokens fixos (independentes do tema).
- */
-
 export interface ThemeColors {
   background: string;
   surface: string;
@@ -127,7 +121,6 @@ export const fontWeight: Record<'regular' | 'medium' | 'semibold' | 'bold', Text
   bold: '700',
 };
 
-/** Sombra de card adaptada ao tema (iOS shadow + Android elevation). */
 export function cardShadow(dark: boolean): ViewStyle {
   return dark
     ? {

@@ -10,7 +10,6 @@ interface State {
   refetch: () => void;
 }
 
-/** Carrega o monitoramento de várias regiões em paralelo. */
 export function useMonitors(regions: Region[]): State {
   const [data, setData] = useState<RegionMonitor[]>([]);
   const [loading, setLoading] = useState(true);
@@ -28,7 +27,7 @@ export function useMonitors(regions: Region[]): State {
     } finally {
       setLoading(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [ids]);
 
   useEffect(() => {

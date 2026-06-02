@@ -2,13 +2,11 @@ import { ClimateAlert, CropHealth, DailyForecast, Region, RegionMonitor } from '
 import { computeCropHealth } from './cropHealthService';
 import { fetchForecast, fetchForecastBatch, ForecastBundle } from './weatherService';
 
-/** Monta o monitoramento completo de uma região (clima + saúde + alertas). */
 export async function getRegionMonitor(region: Region): Promise<RegionMonitor> {
   const bundle = await fetchForecast(region.latitude, region.longitude);
   return buildMonitor(region, bundle);
 }
 
-/** Monitora várias regiões em UMA única requisição (batch) para evitar rate limit. */
 export async function getMonitors(regions: Region[]): Promise<RegionMonitor[]> {
   if (regions.length === 0) return [];
   const bundles = await fetchForecastBatch(
@@ -32,7 +30,6 @@ function buildMonitor(region: Region, bundle: ForecastBundle): RegionMonitor {
   };
 }
 
-/** Gera alertas climáticos a partir da previsão dos próximos dias. */
 function buildAlerts(future: DailyForecast[], health: CropHealth): ClimateAlert[] {
   const alerts: ClimateAlert[] = [];
 

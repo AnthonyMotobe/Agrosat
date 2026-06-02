@@ -10,7 +10,6 @@ interface RawGeo {
   admin1?: string;
 }
 
-/** Busca localidades por nome (geocoding do Open-Meteo). */
 export async function searchLocations(query: string): Promise<GeoResult[]> {
   const term = query.trim();
   if (term.length < 2) return [];

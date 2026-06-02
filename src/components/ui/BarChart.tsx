@@ -14,7 +14,6 @@ interface Props {
   height?: number;
 }
 
-/** Gráfico de barras simples (sem dependências nativas — só Views). */
 export function BarChart({ data, height = 110 }: Props) {
   const { theme } = useTheme();
   const max = Math.max(1, ...data.map((d) => d.value));

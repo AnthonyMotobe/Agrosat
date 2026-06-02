@@ -11,7 +11,6 @@ interface Props {
   tint?: string;
 }
 
-/** Cartão compacto de indicador (usado no dashboard). */
 export function StatCard({ icon, label, value, tint }: Props) {
   const { theme } = useTheme();
   const color = tint ?? theme.colors.primary;

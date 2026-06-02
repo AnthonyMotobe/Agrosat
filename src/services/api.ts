@@ -1,12 +1,5 @@
 import axios, { AxiosError, AxiosInstance } from 'axios';
 
-/**
- * Camada de acesso a APIs externas (Service Layer).
- * Todas as APIs usadas são gratuitas e SEM necessidade de chave:
- *  - Open-Meteo (clima + previsão + geocoding)
- *  - NASA APOD (usa DEMO_KEY)
- */
-
 export const openMeteoForecast: AxiosInstance = axios.create({
   baseURL: 'https://api.open-meteo.com/v1',
   timeout: 12000,
@@ -22,7 +15,6 @@ export const nasaApi: AxiosInstance = axios.create({
   timeout: 12000,
 });
 
-// Interceptor de log (apenas em desenvolvimento) — demonstra uso de interceptors.
 [openMeteoForecast, openMeteoGeocoding, nasaApi].forEach((client) => {
   client.interceptors.request.use((config) => {
     if (__DEV__) {
@@ -32,7 +24,6 @@ export const nasaApi: AxiosInstance = axios.create({
   });
 });
 
-/** Erro de API normalizado e amigável ao usuário. */
 export class ApiError extends Error {
   status?: number;
   constructor(message: string, status?: number) {
@@ -42,7 +33,6 @@ export class ApiError extends Error {
   }
 }
 
-/** Converte qualquer erro em uma `ApiError` com mensagem em pt-BR. */
 export function toApiError(error: unknown, context: string): ApiError {
   if (axios.isAxiosError(error)) {
     const axiosError = error as AxiosError;

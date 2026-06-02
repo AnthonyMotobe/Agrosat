@@ -1,11 +1,5 @@
 import { YieldEstimate, YieldRisk } from '../types';
 
-/**
- * Estimativa de safra HEURÍSTICA e explicável a partir do índice de saúde (0-100).
- * Não é previsão financeira garantida — usa produtividade e preço de REFERÊNCIA por cultura.
- */
-
-/** Produtividade de referência (t/ha) — valores médios aproximados. */
 const BASE_YIELD_T_HA: Record<string, number> = {
   Soja: 3.5,
   Milho: 6.0,
@@ -16,7 +10,6 @@ const BASE_YIELD_T_HA: Record<string, number> = {
   Outros: 3.0,
 };
 
-/** Preço de referência (R$/t) — aproximado e configurável. */
 const PRICE_BRL_T: Record<string, number> = {
   Soja: 2000,
   Milho: 1200,
@@ -36,16 +29,16 @@ export function estimateYield(score: number, crop: string, areaHa: number): Yiel
   let risk: YieldRisk;
 
   if (s >= 85) {
-    productivityPct = 95 + ((s - 85) / 15) * 5; // 95–100%
+    productivityPct = 95 + ((s - 85) / 15) * 5;
     risk = 'baixo';
   } else if (s >= 70) {
-    productivityPct = 80 + ((s - 70) / 15) * 14; // 80–94%
+    productivityPct = 80 + ((s - 70) / 15) * 14;
     risk = 'moderado';
   } else if (s >= 50) {
-    productivityPct = 60 + ((s - 50) / 20) * 19; // 60–79%
+    productivityPct = 60 + ((s - 50) / 20) * 19;
     risk = 'alto';
   } else {
-    productivityPct = 30 + (s / 50) * 29; // < 60%
+    productivityPct = 30 + (s / 50) * 29;
     risk = 'crítico';
   }
 

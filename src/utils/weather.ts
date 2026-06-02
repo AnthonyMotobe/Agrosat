@@ -8,7 +8,6 @@ export interface WeatherInfo {
   icon: IoniconName;
 }
 
-/** Traduz os códigos meteorológicos WMO (Open-Meteo) para rótulo + ícone. */
 export function describeWeather(code: number, isDay = true): WeatherInfo {
   switch (code) {
     case 0:
@@ -58,7 +57,6 @@ export function describeWeather(code: number, isDay = true): WeatherInfo {
   }
 }
 
-/** Cor de status a partir de um score 0-100 (verde/âmbar/vermelho). */
 export function statusFromScore(score: number): 'healthy' | 'warning' | 'critical' {
   if (score >= 66) return 'healthy';
   if (score >= 40) return 'warning';

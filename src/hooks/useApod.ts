@@ -10,7 +10,6 @@ interface State {
   refetch: () => void;
 }
 
-/** Carrega a imagem astronômica do dia (NASA APOD). */
 export function useApod(): State {
   const [data, setData] = useState<Apod | null>(null);
   const [loading, setLoading] = useState(true);

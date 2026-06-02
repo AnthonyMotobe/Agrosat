@@ -1,10 +1,10 @@
-/** Helpers de formatação (pt-BR), sem dependência de Intl para máxima compatibilidade. */
+
 
 const WEEKDAYS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 const MONTHS = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
 function parseDate(iso: string): Date {
-  // Datas "YYYY-MM-DD" são tratadas como local para evitar deslocamento de fuso.
+
   return iso.length === 10 ? new Date(`${iso}T00:00:00`) : new Date(iso);
 }
 

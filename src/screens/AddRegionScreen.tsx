@@ -82,7 +82,7 @@ export function AddRegionScreen({ navigation }: RootStackScreenProps<'AddRegion'
           state = place.region ?? undefined;
         }
       } catch {
-        // reverse geocoding indisponível (ex.: Web) — seguimos só com as coordenadas
+
       }
 
       const id = `gps-${latitude.toFixed(3)}-${longitude.toFixed(3)}`;

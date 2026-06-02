@@ -13,7 +13,6 @@ interface Props {
   edges?: Edge[];
 }
 
-/** Casca de tela: SafeArea + fundo do tema + scroll opcional com pull-to-refresh. */
 export function ScreenContainer({
   children,
   scroll,

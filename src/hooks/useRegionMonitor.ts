@@ -10,7 +10,6 @@ interface State {
   refetch: () => void;
 }
 
-/** Carrega o monitoramento de uma única região. */
 export function useRegionMonitor(region: Region | undefined): State {
   const [data, setData] = useState<RegionMonitor | null>(null);
   const [loading, setLoading] = useState(true);
@@ -30,7 +29,7 @@ export function useRegionMonitor(region: Region | undefined): State {
     } finally {
       setLoading(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [region?.id]);
 
   useEffect(() => {

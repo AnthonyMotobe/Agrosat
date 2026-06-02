@@ -1,6 +1,5 @@
 import { Region } from '../types';
 
-/** Regiões agrícolas brasileiras pré-cadastradas (dados reais de localização). */
 export const SEED_REGIONS: Region[] = [
   {
     id: 'seed-sorriso-mt',

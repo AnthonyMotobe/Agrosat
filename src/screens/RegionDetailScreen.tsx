@@ -52,7 +52,6 @@ export function RegionDetailScreen({ route, navigation }: RootStackScreenProps<'
     });
   }, [navigation, region, favorite, toggleFavorite, theme]);
 
-  // Notificação local quando a lavoura está crítica (no-op na Web, 1x por sessão).
   useEffect(() => {
     if (region && data?.health.status === 'critical') {
       void notifyCriticalRegion(region.id, region.name);

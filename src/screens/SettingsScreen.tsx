@@ -13,9 +13,11 @@ const THEME_SEGMENTS: Segment<ThemeMode>[] = [
 ];
 
 const TEAM = [
-  { name: 'Integrante 1', rm: 'RM000000' },
-  { name: 'Integrante 2', rm: 'RM000000' },
-  { name: 'Integrante 3', rm: 'RM000000' },
+  { name: 'Anthony Komatsubara Motobe', rm: 'RM558488' },
+  { name: 'Evellyn Valencia', rm: 'RM557929' },
+  { name: 'Felipe Cerboncini Cordeiro', rm: 'RM554909' },
+  { name: 'Milena Codinhoto da Silva', rm: 'RM554682' },
+  { name: 'Pedro Henrique Martins Alves dos Santos', rm: 'RM558107' },
 ];
 
 const DATA_SOURCES = [

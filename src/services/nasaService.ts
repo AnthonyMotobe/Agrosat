@@ -1,13 +1,8 @@
 import { nasaApi, toApiError } from './api';
 import { Apod } from '../types';
 
-/**
- * DEMO_KEY funciona para demonstração (limite de requisições baixo).
- * Para uso intenso, gere uma chave gratuita em https://api.nasa.gov e substitua aqui.
- */
 const NASA_API_KEY = 'DEMO_KEY';
 
-/** Astronomy Picture of the Day — toque espacial do app. */
 export async function fetchApod(): Promise<Apod> {
   try {
     const { data } = await nasaApi.get('/planetary/apod', {

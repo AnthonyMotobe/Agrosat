@@ -39,3 +39,7 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Ferramentas locais / config de editor
+.claude/
+strip-comments.cjs

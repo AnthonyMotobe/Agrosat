@@ -10,7 +10,6 @@ interface Props {
   rounded?: number;
 }
 
-/** Placeholder animado (pulse) para estados de carregamento. */
 export function Skeleton({ width = '100%', height = 16, style, rounded = radius.sm }: Props) {
   const { theme } = useTheme();
   const opacity = useRef(new Animated.Value(0.4)).current;

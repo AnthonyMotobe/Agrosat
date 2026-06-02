@@ -5,7 +5,7 @@ import { fontSize, fontWeight, radius, spacing } from '../../theme';
 import { CropStatus } from '../../types';
 
 interface Props {
-  value: number; // 0-100
+  value: number;
   status: CropStatus;
   label?: string;
   showValue?: boolean;

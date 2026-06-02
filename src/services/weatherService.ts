@@ -2,7 +2,6 @@ import axios from 'axios';
 import { openMeteoForecast, toApiError } from './api';
 import { DailyForecast, WeatherSnapshot } from '../types';
 
-/** Pacote bruto retornado pela API de clima (atual + diário + índice de "hoje"). */
 export interface ForecastBundle {
   current: WeatherSnapshot;
   daily: DailyForecast[];
@@ -40,7 +39,6 @@ const FORECAST_PARAMS = {
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-/** Faz a requisição com 1 tentativa extra em caso de HTTP 429 (rate limit). */
 async function requestForecast(params: Record<string, unknown>) {
   try {
     return await openMeteoForecast.get('/forecast', { params });
@@ -85,7 +83,6 @@ function parseBundle(data: any): ForecastBundle {
   return { current, daily, todayIndex };
 }
 
-/** Busca clima atual + previsão de um único ponto. */
 export async function fetchForecast(latitude: number, longitude: number): Promise<ForecastBundle> {
   try {
     const { data } = await requestForecast({ latitude, longitude, ...FORECAST_PARAMS });
@@ -95,11 +92,6 @@ export async function fetchForecast(latitude: number, longitude: number): Promis
   }
 }
 
-/**
- * Busca a previsão de VÁRIOS pontos numa única requisição.
- * O Open-Meteo aceita coordenadas separadas por vírgula e devolve um array,
- * evitando rajadas de requisições (e o erro 429).
- */
 export async function fetchForecastBatch(coords: Coordinate[]): Promise<ForecastBundle[]> {
   if (coords.length === 0) return [];
   try {

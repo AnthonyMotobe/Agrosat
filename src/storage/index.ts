@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-/** Chaves de persistência local (AsyncStorage). */
 export const StorageKeys = {
   themeMode: '@agrosat/theme-mode',
   favorites: '@agrosat/favorites',

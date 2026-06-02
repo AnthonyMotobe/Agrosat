@@ -156,11 +156,11 @@ npm run ios       # iOS (requer macOS)
 
 | Nome completo | RM |
 |---|---|
-| Nome completo — preencher | RMXXXXXX |
-| Nome completo — preencher | RMXXXXXX |
-| Nome completo — preencher | RMXXXXXX |
-| Nome completo — preencher | RMXXXXXX |
-| Nome completo — preencher | RMXXXXXX |
+| Anthony Komatsubara Motobe | RM558488 |
+| Evellyn Valencia | RM557929 |
+| Felipe Cerboncini Cordeiro | RM554909 |
+| Milena Codinhoto da Silva | RM554682 |
+| Pedro Henrique Martins Alves dos Santos | RM558107 |
 
 ---
 
