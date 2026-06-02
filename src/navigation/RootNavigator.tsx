@@ -1,6 +1,7 @@
 import {
   DarkTheme as NavDarkTheme,
   DefaultTheme as NavDefaultTheme,
+  LinkingOptions,
   NavigationContainer,
   Theme as NavigationTheme,
 } from '@react-navigation/native';
@@ -15,6 +16,20 @@ import { TabNavigator } from './TabNavigator';
 import { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const linking: LinkingOptions<RootStackParamList> = {
+  prefixes: [],
+  config: {
+    screens: {
+      Tabs: {
+        screens: { Home: '', Regions: 'lavouras', Favorites: 'favoritos', Settings: 'config' },
+      },
+      RegionDetail: 'lavoura/:regionId',
+      AddRegion: 'adicionar',
+      ApodDetail: 'nasa',
+    },
+  },
+};
 
 export function RootNavigator() {
   const { theme } = useTheme();
@@ -33,7 +48,7 @@ export function RootNavigator() {
   };
 
   return (
-    <NavigationContainer theme={navigationTheme}>
+    <NavigationContainer theme={navigationTheme} linking={linking}>
       <Stack.Navigator
         screenOptions={{
           headerStyle: { backgroundColor: theme.colors.surface },
