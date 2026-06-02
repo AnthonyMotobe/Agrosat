@@ -144,8 +144,6 @@ npm run ios       # iOS (requer macOS)
 
 ## 🖼️ Prints
 
-> Substitua pelos prints reais (arquivos em `docs/screenshots/`).
-
 ![Dashboard](./docs/screenshots/dashboard.png)
 ![Detalhe da Lavoura](./docs/screenshots/detalhe-lavoura.png)
 ![Adicionar Lavoura](./docs/screenshots/adicionar-lavoura.png)
