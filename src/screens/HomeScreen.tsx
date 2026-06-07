@@ -66,7 +66,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
   return (
     <ScreenContainer scroll refreshing={loading} onRefresh={refetch}>
       <View>
-        <Text style={[styles.kicker, { color: theme.colors.primary }]}>AGROSAT · MONITORAMENTO AGROCLIMÁTICO</Text>
+        <Text style={[styles.kicker, { color: theme.colors.primary }]}>TERRAMIND · MONITORAMENTO AGROCLIMÁTICO</Text>
         <Text style={[styles.title, { color: theme.colors.text }]}>Painel das lavouras</Text>
         <Text style={[styles.subtitle, { color: theme.colors.textMuted }]}>
           Índice de saúde (proxy de NDVI) e risco climático por lavoura, a partir de dados climáticos e agroambientais — modelo heurístico explicável.

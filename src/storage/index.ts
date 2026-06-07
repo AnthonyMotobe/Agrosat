@@ -1,10 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const StorageKeys = {
-  themeMode: '@agrosat/theme-mode',
-  favorites: '@agrosat/favorites',
-  customRegions: '@agrosat/custom-regions',
-  settings: '@agrosat/settings',
+  themeMode: '@terramind/theme-mode',
+  favorites: '@terramind/favorites',
+  customRegions: '@terramind/custom-regions',
+  settings: '@terramind/settings',
 } as const;
 
 export async function getItem<T>(key: string, fallback: T): Promise<T> {

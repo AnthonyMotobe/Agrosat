@@ -1,6 +1,6 @@
-# 🛰️ AgroSat — Monitoramento Agroclimático de Lavouras
+# 🛰️ TerraMind — Monitoramento Agroclimático de Lavouras
 
-**AgroSat** é um **MVP mobile de apoio à decisão agrícola** (React Native + Expo SDK 55 + TypeScript). Ele usa **dados climáticos e agroambientais** para calcular um **índice explicável de saúde da lavoura (0–100)**, antecipar **riscos climáticos** e estimar a **safra**. O índice é **inspirado no conceito de NDVI**, mas nesta versão funciona como um **proxy agroclimático** — **sem processamento real de imagens de satélite**.
+**TerraMind** é um **MVP mobile de apoio à decisão agrícola** (React Native + Expo SDK 55 + TypeScript). Ele usa **dados climáticos e agroambientais** para calcular um **índice explicável de saúde da lavoura (0–100)**, antecipar **riscos climáticos** e estimar a **safra**. O índice é **inspirado no conceito de NDVI**, mas nesta versão funciona como um **proxy agroclimático** — **sem processamento real de imagens de satélite**.
 
 ![Expo SDK](https://img.shields.io/badge/Expo-SDK%2055-000?logo=expo) ![React Native](https://img.shields.io/badge/React%20Native-0.83-61dafb?logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6?logo=typescript)
 
@@ -12,7 +12,7 @@ No campo, **estresse hídrico, geada e seca** muitas vezes só são percebidos q
 
 ## 💡 Solução
 
-O AgroSat reúne em um app: o **índice de saúde** de cada lavoura, o **risco climático** dos próximos dias, **alertas** e uma **estimativa de safra** — ajudando o produtor a **priorizar onde agir** antes do prejuízo.
+O TerraMind reúne em um app: o **índice de saúde** de cada lavoura, o **risco climático** dos próximos dias, **alertas** e uma **estimativa de safra** — ajudando o produtor a **priorizar onde agir** antes do prejuízo.
 
 ## 🛰️ Relação com a indústria espacial (honesta)
 
@@ -38,8 +38,7 @@ O AgroSat reúne em um app: o **índice de saúde** de cada lavoura, o **risco c
 | 🏠 **Dashboard** | Indicadores (saúde média, lavouras em alerta, área total), **gráfico de saúde por lavoura** e imagem astronômica da NASA. |
 | 🌿 **Lavouras** | Lista com **busca**, **filtro por status** e **ordenação**. Pull-to-refresh. |
 | ➕ **Adicionar lavoura** | Por **cidade (geocoding)** ou pelo **GPS do dispositivo** ("Usar minha localização"). Salva localmente. |
-| 🔎 **Detalhe da lavoura** | Índice de saúde (proxy de NDVI), **estimativa de safra**, estresse hídrico, clima atual, previsão de 7 dias e **alertas climáticos**. |
-| 🔔 **Notificações locais** | Aviso no aparelho quando uma lavoura entra em **estado crítico**. |
+| 🔎 **Detalhe da lavoura** | Índice de saúde (proxy de NDVI), **estimativa de safra**, estresse hídrico, clima atual, previsão de 7 dias e **alertas climáticos** (no app). |
 | ⭐ **Favoritos** | Lavouras marcadas, **persistidas** no dispositivo. |
 | ⚙️ **Configurações** | Tema **claro/escuro/sistema**, fontes de dados e equipe. |
 
@@ -74,7 +73,6 @@ Resultado: score **0–100** + valor estilo **NDVI 0–1**, classificado em **Sa
 - **AsyncStorage** (persistência local)
 - **Axios** (Service Layer com interceptors, batch e tratamento de erro)
 - **expo-location** (geolocalização do dispositivo)
-- **expo-notifications** (notificações locais)
 - **@expo/vector-icons** (Ionicons)
 - APIs: **Open-Meteo** e **NASA APOD**
 
@@ -87,7 +85,7 @@ src/
  ├── components/   # Componentes + ui/ (design system)
  ├── screens/      # Home, Regions, RegionDetail, AddRegion, Favorites, Settings, ApodDetail
  ├── navigation/   # Navegadores + tipos de rota
- ├── services/     # API (Open-Meteo, NASA) + regras (saúde, safra, notificações)
+ ├── services/     # API (Open-Meteo, NASA) + regras (saúde, safra, alertas)
  ├── hooks/        # useMonitors, useRegionMonitor, useApod + hooks de contexto
  ├── contexts/     # Theme, Favorites, Regions
  ├── storage/      # Wrapper tipado do AsyncStorage
@@ -118,7 +116,7 @@ npm run android   # Android (Expo Go / emulador)
 npm run ios       # iOS (requer macOS)
 ```
 
-> Observação: `expo-location` usa a geolocalização do navegador na Web e o GPS no celular. As **notificações locais** funcionam em Android/iOS (no aparelho); na Web são desativadas com segurança.
+> Observação: `expo-location` usa a geolocalização do navegador na Web e o GPS no celular. Os **alertas climáticos** aparecem dentro do app (Dashboard e Detalhe) e funcionam em todas as plataformas.
 
 ---
 
@@ -127,7 +125,7 @@ npm run ios       # iOS (requer macOS)
 - O índice de saúde é um **modelo heurístico explicável**, **não é IA/Machine Learning** treinado.
 - O "NDVI" é um **proxy agroclimático**, **não** NDVI espectral real.
 - O app **não processa imagens Sentinel-2/Landsat** nesta versão.
-- As notificações são **locais** (no aparelho), **não** push remoto com backend.
+- Os **alertas** são exibidos **dentro do app** (Dashboard e Detalhe); **notificações push** ficam no roadmap.
 - A estimativa de safra é **relativa e aproximada** (valores de referência), não previsão financeira garantida.
 - Backend e processamento geoespacial real **não fazem parte** do MVP.
 
@@ -144,7 +142,7 @@ npm run ios       # iOS (requer macOS)
 
 ## 🖼️ Prints
 
-> Substitua pelos prints reais (arquivos em `docs/screenshots/`).
+> Capturas do app em execução (arquivos em `docs/screenshots/`).
 
 ![Dashboard](./docs/screenshots/dashboard.png)
 ![Detalhe da Lavoura](./docs/screenshots/detalhe-lavoura.png)

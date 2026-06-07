@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import React, { ComponentProps, useEffect, useLayoutEffect } from 'react';
+import React, { ComponentProps, useLayoutEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import {
   AlertCard,
@@ -19,7 +19,6 @@ import {
 import { useTheme } from '../contexts/ThemeContext';
 import { useFavorites, useRegionMonitor, useRegions } from '../hooks';
 import { RootStackScreenProps } from '../navigation/types';
-import { notifyCriticalRegion } from '../services/notificationService';
 import { estimateYield } from '../services/yieldEstimateService';
 import { fontSize, fontWeight, spacing } from '../theme';
 import { formatNumber, relativeFromNow, weekdayShort } from '../utils/format';
@@ -51,12 +50,6 @@ export function RegionDetailScreen({ route, navigation }: RootStackScreenProps<'
         : undefined,
     });
   }, [navigation, region, favorite, toggleFavorite, theme]);
-
-  useEffect(() => {
-    if (region && data?.health.status === 'critical') {
-      void notifyCriticalRegion(region.id, region.name);
-    }
-  }, [region, data]);
 
   if (!region) {
     return (

@@ -1,7 +1,7 @@
-# ✅ Checklist de entrega — AgroSat
+# ✅ Checklist de entrega — TerraMind
 
 ## Repositório / GitHub
-- [ ] Repositório GitHub criado (público) e isolado só do AgroSat
+- [ ] Repositório GitHub criado (público) e isolado só do TerraMind
 - [ ] `git push` feito na branch principal
 - [ ] **`node_modules` NÃO está no repositório** (conferir no GitHub)
 - [ ] Clonado em pasta limpa: `npm install && npm start` sobe sem erro
@@ -29,7 +29,7 @@
 - [ ] Adicionar lavoura por cidade (geocoding)
 - [ ] Adicionar lavoura por **GPS** ("Usar minha localização")
 - [ ] Detalhe: índice de saúde, **estimativa de safra**, clima, previsão, alertas
-- [ ] **Notificação local** ao abrir lavoura crítica (em device)
+- [ ] **Alertas climáticos** no Dashboard (contador "em alerta") e no Detalhe
 - [ ] Favoritos (persistência)
 - [ ] Configurações (tema claro/escuro/sistema)
 - [ ] Persistência local (favoritos, lavouras, tema)

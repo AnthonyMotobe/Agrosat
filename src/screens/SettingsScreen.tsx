@@ -69,9 +69,9 @@ export function SettingsScreen() {
       </Card>
 
       <Card style={styles.card}>
-        <SectionHeader title="Sobre o AgroSat" />
+        <SectionHeader title="Sobre o TerraMind" />
         <Text style={[styles.paragraph, { color: theme.colors.textMuted }]}>
-          O AgroSat é um MVP mobile de apoio à decisão agrícola: usa dados climáticos e agroambientais para calcular um
+          O TerraMind é um MVP mobile de apoio à decisão agrícola: usa dados climáticos e agroambientais para calcular um
           índice de saúde da lavoura por um modelo heurístico explicável (proxy de NDVI, sem processar imagens de
           satélite nesta versão) e antecipar riscos como estresse hídrico, geada e calor. Alinhado aos ODS 2, 13 e 9.
         </Text>
@@ -120,7 +120,7 @@ export function SettingsScreen() {
         ))}
       </Card>
 
-      <Text style={[styles.version, { color: theme.colors.textMuted }]}>AgroSat · v1.0.0 · Expo SDK 55</Text>
+      <Text style={[styles.version, { color: theme.colors.textMuted }]}>TerraMind · v1.0.0 · Expo SDK 55</Text>
     </ScreenContainer>
   );
 }
