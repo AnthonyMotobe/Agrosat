@@ -144,9 +144,11 @@ npm run ios       # iOS (requer macOS)
 
 ## 🖼️ Prints
 
-![Dashboard](./docs/screenshots/dashboard.png)
-![Detalhe da Lavoura](./docs/screenshots/detalhe-lavoura.png)
-![Adicionar Lavoura](./docs/screenshots/adicionar-lavoura.png)
+![Dashboard](./docs/screenshots/Screenshot_81.png)
+![Detalhe da Lavoura](./docs/screenshots/Screenshot_82.png)
+![Detalhe da Lavoura](./docs/screenshots/Screenshot_83.png)
+![Detalhe da Lavoura](./docs/screenshots/Screenshot_84.png)
+![Adicionar Lavoura](./docs/screenshots/Screenshot_85.png)
 
 ---
 
